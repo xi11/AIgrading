@@ -249,7 +249,7 @@ class Patches:
 
 
 
-model=load_model('All_FOSO_e5060_v17_color.h5', custom_objects={'tf': tf}, compile=False)
+model=load_model('gp_model6class.h5', custom_objects={'tf': tf}, compile=False)
 save_dir = r''
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
@@ -266,7 +266,7 @@ for file in files:
     if not os.path.exists(save_dir_file):
         os.makedirs(save_dir_file)
 
-    imgs = sorted(glob(os.path.join(test_img_dir, '*Da*.jpg')))
+    imgs = sorted(glob(os.path.join(test_img_dir, 'xxx.jpg')))
     for im_f in imgs:
         img_name = os.path.splitext(os.path.basename(im_f))[0]
         if not os.path.exists(os.path.join(save_dir_file, img_name + '.png')):
