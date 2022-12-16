@@ -16,8 +16,6 @@ def to_categorical_mask(multi_label, nClasses):
     return categorical_mask
 
 
-
-
 #openCV: BGR
 class_colors = [(0, 0, 0), (0, 255, 0), (255, 0, 255), (0, 0, 128), (0, 255, 255), (0, 0, 255), (255, 0, 0)]
 
@@ -36,7 +34,7 @@ def get_colored_segmentation_image(seg_arr, n_classes, colors=class_colors):
 
     return seg_img
 
-target_image = np.float32(cv2.cvtColor(cv2.imread('toNormlise.jpg'), cv2.COLOR_BGR2RGB)) / 255.0
+target_image = np.float32(cv2.cvtColor(cv2.imread('./toNormlise.jpg'), cv2.COLOR_BGR2RGB)) / 255.0
 target_lab = cv2.cvtColor(target_image, cv2.COLOR_RGB2Lab)
 mt = np.mean(target_lab, axis=(0, 1))
 stdt = np.std(target_lab, axis=(0, 1))
@@ -249,13 +247,17 @@ class Patches:
 
 
 
-model=load_model('gp_model6class.h5', custom_objects={'tf': tf}, compile=False)
-save_dir = r''
+model=load_model('./gp_model6class.h5', custom_objects={'tf': tf}, compile=False)
+
+#####setup#####
+save_dir = 'ouput_folder_of_each_slide'
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
+datapath = 'input_folder_of_each_slide_which_has_been_divided_into_tiles'
+slide_pattern = '*.ndpi'
+#####setup#####
 
-datapath = r''
-files = sorted(glob(os.path.join(datapath, '*.ndpi')))
+files = sorted(glob(os.path.join(datapath, slide_pattern)))
 
 for file in files:
 
@@ -266,7 +268,7 @@ for file in files:
     if not os.path.exists(save_dir_file):
         os.makedirs(save_dir_file)
 
-    imgs = sorted(glob(os.path.join(test_img_dir, 'xxx.jpg')))
+    imgs = sorted(glob(os.path.join(test_img_dir, '*.jpg')))
     for im_f in imgs:
         img_name = os.path.splitext(os.path.basename(im_f))[0]
         if not os.path.exists(os.path.join(save_dir_file, img_name + '.png')):
@@ -284,8 +286,7 @@ for file in files:
             outData = model.predict(testData_c)
             merge_output = patch_obj.merge_patches(outData)
             merge_output = merge_output.argmax(axis=2)
-            merge_output = post_processing(merge_output)
-
+            
             seg_mask = get_colored_segmentation_image(merge_output, 7, colors=class_colors)
             cv2.imwrite(os.path.join(save_dir_file, img_name + '.png'), seg_mask)
 
