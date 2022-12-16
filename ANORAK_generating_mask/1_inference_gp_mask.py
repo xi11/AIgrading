@@ -35,6 +35,13 @@ def to_categorical_mask(multi_label, nClasses):
 
 #openCV: BGR
 class_colors = [(0, 0, 0), (0, 255, 0), (255, 0, 255), (0, 0, 128), (0, 255, 255), (0, 0, 255), (255, 0, 0)]
+#(0, 0, 0): background
+#(0, 255, 0): cribriform
+#(255, 0, 255): micropapillary
+#(0, 0, 128): solid
+#(0, 255, 255): papillary
+#(0, 0, 255): acinar
+#(255, 0, 0): lepidic
 
 
 def get_colored_segmentation_image(seg_arr, n_classes, colors=class_colors):
