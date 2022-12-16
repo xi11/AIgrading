@@ -1,5 +1,4 @@
 # This is a simple demo of generating growth pattern mask from H&E images for lung adenocarcinoma. 
-# Copyright 2022 X. Pan
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -268,21 +267,21 @@ class Patches:
 model=load_model('./gp_model6class.h5', custom_objects={'tf': tf}, compile=False)
 
 #####setup#####
-save_dir = 'ouput_folder_of_each_slide'
-if not os.path.exists(save_dir):
-    os.makedirs(save_dir)
-datapath = 'input_folder_of_each_slide_which_has_been_divided_into_tiles'
-slide_pattern = '*.ndpi'
+mask_dir = 'ouput_folder_of_each_slide'
+if not os.path.exists(mask_dir):
+    os.makedirs(mask_dir)
+data_dir = 'input_folder_of_each_slide_which_has_been_divided_into_tiles'
+slide_pattern = '*.ndpi'  #can be changed according to the slide format
 #####setup#####
 
-files = sorted(glob(os.path.join(datapath, slide_pattern)))
+files = sorted(glob(os.path.join(data_dir, slide_pattern)))
 
 for file in files:
 
     file_name = file[0]
     print(file_name)
-    test_img_dir = os.path.join(datapath, file_name)
-    save_dir_file = os.path.join(save_dir, file_name)
+    test_img_dir = os.path.join(data_dir, file_name)
+    save_dir_file = os.path.join(mask_dir, file_name)
     if not os.path.exists(save_dir_file):
         os.makedirs(save_dir_file)
 
