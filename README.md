@@ -1,4 +1,4 @@
-## AIgrading
+## AI grading
 This is an implementation for "Artificial Intelligence-based grading of lung adenocarcinoma growth patterns".  
 This repository could guide you to generate growth pattern masks with a well-trained deep learning model for semantic segmentation, from which the proportion of each growth pattern can be obtained, thereby replicating IASLC grading for lung adenocarcinoma.
 
