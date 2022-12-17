@@ -4,7 +4,7 @@ This repository could guide you to generate growth pattern masks with a well-tra
 
 ### Training
 dataset: $768 \times 768$ at x20 (~0.45mm/pixel) or $384 \times 384$ at 10x (~0.9mm/pixel)  
-training time:  
+training time: ~5hrs under a single GPU (NVIDIA Tesla P100 PCIe 16 GB)
 ```
 module load anaconda/3  
 source /opt/software/applications/anaconda/3/etc/profile.d/conda.sh  
