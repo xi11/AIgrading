@@ -190,7 +190,7 @@ ggplot(data_lattice, aes(x=grade_ai, y=area_mean, fill=grade_ai)) +
   theme(legend.position="none",plot.title = element_text(size=11)) +
   stat_compare_means(comparison=my_comparison1,method = "wilcox.test")+
   xlab("")
-dev.off()
+
 
 
 
