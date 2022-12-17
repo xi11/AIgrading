@@ -20,4 +20,5 @@ Input: H&E image tile, ideally larger than $768 \times 768$
 Output: Growth pattern mask, black-background, blue-lepidic, yellow-papillary, red-acinar, green-cribriform, magenta-micropapillary, dark red-solid
 
 Step0: dividing a slide image into tiles, `./tilling/CWS_generator.py`, code can be found at https://github.com/qalid7/compath  
-Step1:
+Step1: generating growth pattern mask for each tile, `./ANORAK_inference/1_inference_gp_mask.py`. It'll take ~15s for a tile with a size of $2000 \times 2000$ under a CPU env.  
+Step2: stiching tiles to a downsampled slide (x1.25), `./ANORAK_inference/2_stich_mask.py`.
