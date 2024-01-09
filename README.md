@@ -9,7 +9,7 @@ After all dependencies are well installed, if the format of whole slide images a
 python ./generating_tiles/main_tiles.py -d /path/to/raw/slides -o /path/to/result -p '*.svs'
 ```
 The ouptut structure will be
-result/cws_tiling
+result_cws_tiling /
         ├── TCGA-xxxx-xxxx.svs
         │   ├── Da0.jpg
         │   ├── Da1.jpg
@@ -29,7 +29,7 @@ Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into pat
 python ./training_patch/img_patch_768.py --image_path /path/to/training/image --label_path /path/to/training/mask --save_path /path/to/patches
 ```
 The training patches are structured as
-Training_patches/
+Training_patches /
 ├── image
 │   ├── train001_xxx_0.png
 │   ├── train001_xxx_1.png
