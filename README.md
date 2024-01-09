@@ -1,6 +1,5 @@
 ## AI grading
-This is an implementation for "Artificial Intelligence-based grading of lung adenocarcinoma growth patterns".  
-This repository could guide you to generate growth pattern masks with a well-trained deep learning model for semantic segmentation, from which the proportion of each growth pattern can be obtained, thereby replicating IASLC grading for lung adenocarcinoma.
+This repository is for the paper  "The artificial intelligence-based model ANORAK improves histopathological grading of lung adenocarcinoma" published in Nature Cancer. It could guide you to generate growth pattern masks with a well-trained deep learning model for semantic segmentation, from which the proportion of each growth pattern can be obtained, thereby replicating IASLC grading for lung adenocarcinoma.
 
 ### Generating tiles for a whole slie image
 Dependencies for generating_tiles are in AIgraind/generating_tiles/requirements, following the step in AbdulJabbar, K. et al. Geospatial immune variability illuminates differential evolution of lung adenocarcinoma. Nature Medicine (2020). doi: 10.1038/s41591-020-0900-x
