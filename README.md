@@ -12,13 +12,13 @@ The ouptut structure will be
 
 result_cws_tiling/
         ├── TCGA-xxxx-xxxx.svs
-        │   ├── Da0.jpg
-        │   ├── Da1.jpg
-        │   └── ...
-        └── TCGA-xxxx-xxxx.svs
-            ├── Da0.jpg
-            ├── Da1.jpg
-            └── ...
+		├── slide_1.png
+		├── slide_2.png
+		└── ...
+	├── patches
+		├── slide_1.h5
+		├── slide_2.h5
+		└── ...
 
 ### Training
 Dependencies for training_patch are in AIgrading/requirements
