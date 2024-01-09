@@ -2,23 +2,52 @@
 This is an implementation for "Artificial Intelligence-based grading of lung adenocarcinoma growth patterns".  
 This repository could guide you to generate growth pattern masks with a well-trained deep learning model for semantic segmentation, from which the proportion of each growth pattern can be obtained, thereby replicating IASLC grading for lung adenocarcinoma.
 
+### Generating tiles for a whole slie image
+Dependencies for generating_tiles are in AIgraind/generating_tiles/requirements, following the step in AbdulJabbar, K. et al. Geospatial immune variability illuminates differential evolution of lung adenocarcinoma. Nature Medicine (2020). doi: 10.1038/s41591-020-0900-x
+After all dependencies are well installed, if the format of whole slide images are in .svs format, then
+```
+python ./generating_tiles/main_tiles.py -d /path/to/raw/slides -o /path/to/result -p '*.svs'
+```
+The ouptut structure will be
+result/cws_tiling
+        ├── TCGA-xxxx-xxxx.svs
+        │   ├── Da0.jpg
+        │   ├── Da1.jpg
+        │   └── ...
+        └── TCGA-xxxx-xxxx.svs
+            ├── Da0.jpg
+            ├── Da1.jpg
+            └── ...
+
 ### Training
+Dependencies for training_patch are in AIgrading/requirements
 dataset: $768 \times 768$ at x20 (~0.45um/pixel) or $384 \times 384$ at x10 (~0.9um/pixel)  
 training time: ~5hrs under a single GPU (NVIDIA Tesla P100 PCIe 16 GB)
+Step0: creat the conda environment following AIgrading/requirements.txt
+Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into patches with a size of $768 \times 768$ 
 ```
-module load anaconda/3  
-source /opt/software/applications/anaconda/3/etc/profile.d/conda.sh  
-conda activate /.conda/envs/tfGPU2p2  
-cd /your_own_dir/ANORAK_training  
-python train_main.py
-conda deactivate
+python ./training_patch/img_patch_768.py --image_path /path/to/training/image --label_path /path/to/training/mask --save_path /path/to/patches
 ```
-
+The training patches are structured as
+Training_patches/
+├── image
+│   ├── train001_xxx_0.png
+│   ├── train001_xxx_1.png
+│   └── ...
+└── maskPng
+    ├── train001_xxx_0.png
+    ├── train001_xxx_1.png
+    └── ...
+Step2: train the model
+```
+python ./training_patch/train_main.py --input_dir /path/to/patches/image --target_dir /path/to/patches/maskPng --img_size 384 --num_class 7 --batch_size 8 --num_epoch 60
+```
 
 ### Inference
-Input: H&E image tile, ideally larger than $768 \times 768$  
+Dependencies for inference_slide are in AIgraind/requirements, same with the training
+Input: H&E image tiles
 Output: Growth pattern mask, black-background, blue-lepidic, yellow-papillary, red-acinar, green-cribriform, magenta-micropapillary, dark red-solid
+```
+python ./inference_slide/main_gp.py -d /path/to/cws_tiling -o /path/to/cws_mask -s /path/to/ss1_mask -sf /path/to/ss1_mask_final -p '.svs' -n 1
+```
 
-Step0: dividing a slide image into tiles, `./tilling/CWS_generator.py`, code can be found at https://github.com/qalid7/compath  
-Step1: generating growth pattern mask for each tile, `./ANORAK_generating_mask/1_inference_gp_mask.py`. It'll take ~15s for a tile with a size of $2000 \times 2000$ under a CPU env.  
-Step2: stiching tiles to a downsampled slide (x1.25), `./ANORAK_generating_mask/2_stich_mask_ss1.py`.
