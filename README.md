@@ -30,7 +30,7 @@ Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into pat
 python ./training_patch/img_patch_768.py --image_path /path/to/training/image --label_path /path/to/training/mask --save_path /path/to/patches
 ```
 The training patches are structured as
-
+```
 Training_patches /
 ├── image
 │   ├── train001_xxx_0.png
@@ -40,6 +40,7 @@ Training_patches /
     ├── train001_xxx_0.png
     ├── train001_xxx_1.png
     └── ...
+```
 Step2: train the model
 ```
 python ./training_patch/train_main.py --input_dir /path/to/patches/image --target_dir /path/to/patches/maskPng --img_size 384 --num_class 7 --batch_size 8 --num_epoch 60
