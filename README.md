@@ -10,7 +10,7 @@ python ./generating_tiles/main_tiles.py -d /path/to/raw/slides -o /path/to/resul
 ```
 The ouptut structure will be
 
-result_cws_tiling /
+result_cws_tiling/
         ├── TCGA-xxxx-xxxx.svs
         │   ├── Da0.jpg
         │   ├── Da1.jpg
