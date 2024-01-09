@@ -9,7 +9,7 @@ After all dependencies are well installed, if the format of whole slide images a
 python ./generating_tiles/main_tiles.py -d /path/to/raw/slides -o /path/to/result -p '*.svs'
 ```
 The ouptut structure will be
-
+```
 result_cws_tiling/
         ├── TCGA-xxxx-xxxx.svs
 		├── Da0.jpg
@@ -19,7 +19,7 @@ result_cws_tiling/
 		├── Da0.jpg
 		├── Da1.jpg
 		└── ...
-
+```
 ### Training
 Dependencies for training_patch are in AIgrading/requirements
 dataset: $768 \times 768$ at x20 (~0.45um/pixel) or $384 \times 384$ at x10 (~0.9um/pixel)  
