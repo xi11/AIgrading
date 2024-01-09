@@ -12,12 +12,12 @@ The ouptut structure will be
 
 result_cws_tiling/
         ├── TCGA-xxxx-xxxx.svs
-		├── slide_1.png
-		├── slide_2.png
+		├── Da0.jpg
+		├── Da1.jpg
 		└── ...
-	├── patches
-		├── slide_1.h5
-		├── slide_2.h5
+	├── TCGA-xxxx-xxxx.svs
+		├── Da0.jpg
+		├── Da1.jpg
 		└── ...
 
 ### Training
