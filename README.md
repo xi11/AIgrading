@@ -48,7 +48,7 @@ python ./training_patch/train_main.py --input_dir /path/to/patches/image --targe
 ### Inference
 Dependencies for inference_slide are in AIgraind/requirements, same with the training
 Input: H&E image tiles
-Output: Growth pattern mask, black-background, blue-lepidic, yellow-papillary, red-acinar, green-cribriform, magenta-micropapillary, dark red-solid
+Output: Growth pattern mask, #000000 black-background, blue-lepidic, yellow-papillary, red-acinar, cyan-cribriform, magenta-micropapillary, dark red-solid
 ```
 python ./inference_slide/main_gp.py -d /path/to/cws_tiling -o /path/to/cws_mask -s /path/to/ss1_mask -sf /path/to/ss1_mask_final -p '.svs' -n 1
 ```
