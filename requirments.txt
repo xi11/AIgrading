@@ -1,0 +1,19 @@
+#Raw software/packages in a singularity container used for generating tiles
+python==3.5
+openslide-3.4.1
+openslide-python==1.1.2
+tifffile==2019.7.26.2
+pillow==6.0.0
+numpy==1.16.3
+scipy==1.2.1
+
+
+Tested software/packages
+python==3.11
+conda install -c conda-forge openslide
+openslide-python==1.3.1
+tiffile==2023.12.9
+pillow==10.2.0
+numpy==1.26.3
+scipy==1.11.4
+
