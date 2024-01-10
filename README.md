@@ -61,6 +61,6 @@ Output: Growth pattern mask,
 #880000 dark red-solid
 ```
 ```
-python ./inference_slide/main_gp.py -d /path/to/cws_tiling -o /path/to/cws_mask -s /path/to/ss1_mask -sf /path/to/ss1_mask_final -p '.svs'
+python ./inference_slide/main_gp.py -d /path/to/cws_tiling -o /path/to/cws_mask -s /path/to/ss1_mask -sf /path/to/ss1_mask_final -p '.svs' -n 0
 ```
 
