@@ -223,9 +223,7 @@ def generate_gp(datapath, save_dir, file_pattern='*.ndpi', nfile=0, patch_size=7
         img_name = os.path.splitext(os.path.basename(im_f))[0]
         if not os.path.exists(os.path.join(save_dir_file, img_name + '.png')):
             testImgc = np.array(Image.open(im_f))
-            print(color_norm)
             if color_norm:
-                print('color normalization')
                 testImgc = pre_process_images(testImgc)
             patch_obj = Patches(img_patch_h=patch_size, img_patch_w=patch_size, stride_h=patch_stride, stride_w=patch_stride, label_patch_h=patch_size,
                                 label_patch_w=patch_size)
