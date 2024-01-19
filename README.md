@@ -20,9 +20,8 @@ result_cws_tiling/
 		└── ...
 ```
 ### Training
-Dependencies for training_patch are in AIgrading/requirements
-dataset: $768 \times 768$ at x20 (~0.45um/pixel) or $384 \times 384$ at x10 (~0.9um/pixel)  
-training time: ~5hrs under a single GPU (NVIDIA Tesla P100 PCIe 16 GB)
+Dependencies for training_patch are in AIgrading/requirements.
+Dataset for training: [https://doi.org/10.5281/zenodo.10016027] 
 Step0: creat the conda environment following AIgrading/requirements.txt
 Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into patches with a size of $768 \times 768$ 
 ```
