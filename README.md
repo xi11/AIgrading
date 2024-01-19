@@ -3,6 +3,7 @@ This repository is for the paper  "The artificial intelligence-based model ANORA
 
 ### Generating tiles for a whole slie image
 Dependencies for generating_tiles are in AIgraind/generating_tiles/requirements, following the step in the work of AbdulJabbar, K. et al. Geospatial immune variability illuminates differential evolution of lung adenocarcinoma. Nature Medicine (2020). doi: 10.1038/s41591-020-0900-x
+
 After all dependencies are well installed, if the format of whole slide images are in .svs format, then
 ```
 python ./generating_tiles/main_tiles.py -d /path/to/raw/slides -o /path/to/result -p '*.svs'
