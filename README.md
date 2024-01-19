@@ -21,8 +21,11 @@ result_cws_tiling/
 ```
 ### Training
 Dependencies for training_patch are in AIgrading/requirements.
+
 Dataset for training: [https://doi.org/10.5281/zenodo.10016027] 
+
 Step0: creat the conda environment following AIgrading/requirements.txt
+
 Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into patches with a size of $768 \times 768$ 
 ```
 python ./training_patch/img_patch_768.py --image_path /path/to/training/image --label_path /path/to/training/mask --save_path /path/to/patches
