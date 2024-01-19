@@ -23,7 +23,7 @@ result_cws_tiling/
 ### Training
 Dependencies for training_patch are in AIgrading/requirements.
 
-Dataset for training: [https://doi.org/10.5281/zenodo.10016027] 
+Dataset for training: https://doi.org/10.5281/zenodo.10016027
 
 Step0: creat the conda environment following AIgrading/requirements.txt
 
