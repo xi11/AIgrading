@@ -12,7 +12,7 @@ def read_img(data_file, label_file):    # to be checked with if file or path
     return data, labels
 
 def get_label_file(data_file,label_path): #get mask with corresponding name
-    data_file_name = data_file.split('\\')[-1]  #split path and get the last one, which is the file name
+    data_file_name = data_file.split('/')[-1]  #split path and get the last one, which is the file name; '/' for running under linux, '\\' for running under win
     label_file_name = data_file_name[:-4] + '.mat' #remove .jpg/.png, combined with '.mat'
     label_file = os.path.join(label_path, label_file_name)
     return label_file, data_file_name[:-4]
