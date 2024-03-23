@@ -83,8 +83,8 @@ def run(opts_in):
 
     if not os.path.exists(save_path):
         os.makedirs(save_path)
-        os.makedirs(str(save_path) + '\image')
-        os.makedirs(str(save_path) + '\maskPng')
+        os.makedirs(os.path.join(save_path, 'image'))
+        os.makedirs(os.path.join(save_path, 'maskPng'))
     train_data = sorted(list(image_path.glob('train*')))
     print('data number: ', len(train_data))
     write_to_patch(data_files = train_data, label_path = label_path, save_path=save_path)
