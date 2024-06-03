@@ -31,7 +31,7 @@ Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into pat
 ```
 python ./training_patch/img2patch.py --image_path /path/to/training/image --label_path /path/to/training/mask --save_path /path/to/patches
 ```
-The training patches are structured as
+The output training patches from this step are structured as
 ```
 Training_patches /
 ├── image
