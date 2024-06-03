@@ -29,7 +29,7 @@ Step0: creat the conda environment following AIgrading/requirements.txt
 
 Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into patches with a size of $768 \times 768$ 
 ```
-python ./training_patch/img_patch_768.py --image_path /path/to/training/image --label_path /path/to/training/mask --save_path /path/to/patches
+python ./training_patch/img2patch.py --image_path /path/to/training/image --label_path /path/to/training/mask --save_path /path/to/patches
 ```
 The training patches are structured as
 ```
