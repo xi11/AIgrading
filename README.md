@@ -25,6 +25,8 @@ Dependencies for training_patch are in AIgrading/requirements.
 
 Dataset for training: https://doi.org/10.5281/zenodo.10016027
 
+The trained model checkpoint is deposited in https://zenodo.org/records/15272883
+
 Step0: creat the conda environment following AIgrading/requirements.txt
 
 Step1: divide image in trainset (download from 10.5281/zenodo.10016027) into patches with a size of $768 \times 768$ 
@@ -50,6 +52,8 @@ python ./training_patch/train_main.py --input_dir /path/to/patches/image --targe
 
 ### Inference
 Dependencies for inference_slide are in AIgraind/requirements, same with the training
+
+The trained model checkpoint is deposited in https://zenodo.org/records/15272883
 
 Input: H&E image tiles
 
